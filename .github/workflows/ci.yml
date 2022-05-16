@@ -12,7 +12,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Constable Analyze
-        uses: constableapp/github-action@v0.0.18alpha 
+        uses: constableapp/github-action@v0.0.19alpha 
         with:
           terraform-module-root: "./devops"
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
