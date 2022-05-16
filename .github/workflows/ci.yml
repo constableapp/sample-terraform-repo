@@ -1,0 +1,19 @@
+name: CI
+
+on: 
+  push:
+
+jobs:
+  analyze_terraform:
+    name: Analyze Terraform
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Constable Analyze
+        uses: constableapp/github-action@v0.0.13alpha 
+        with:
+          terraform-module-root: "./devops"
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
