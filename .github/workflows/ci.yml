@@ -12,7 +12,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Constable Analyze
-        uses: constableapp/github-action@v0.0.24alpha 
+        uses: constableapp/github-action@v0.0.3-alpha.ba3311be
         with:
           constable-api-key: ${{ secrets.CONSTABLE_API_KEY }}
           terraform-module-root: "./devops"
