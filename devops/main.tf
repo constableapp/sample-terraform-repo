@@ -10,13 +10,6 @@ provider "aws" {
   region = "us-east-1"
 }
 
-<<<<<<< Updated upstream
-resource "aws_iam_user" "sample_terraform_user" {
-  name = "sample-terraform-user"
-}
-
-=======
->>>>>>> Stashed changes
 resource "aws_s3_bucket" "tf-state" {
   bucket = "constable-sample-terraform-state"
   acl    = "private"
@@ -25,6 +18,26 @@ resource "aws_s3_bucket" "tf-state" {
 resource "aws_s3_bucket" "financial_data" {
   bucket = "sensitive-financial-data"
   acl    = "private"
+}
+
+resource "aws_iam_role" "long_lived_session_role" {
+  name = "long_lived_session_role"
+
+  assume_role_policy = jsonencode({
+    Version = "2012-10-17"
+    Statement = [
+      {
+        Action = "sts:AssumeRole"
+        Effect = "Allow"
+        Sid    = ""
+        Principal = {
+          AWS = "*"
+        }
+      },
+    ]
+  })
+
+  max_session_duration = 43200
 }
 
 resource "aws_iam_user" "cfo" {
@@ -50,3 +63,4 @@ resource "aws_iam_user_policy" "cfo" {
 }
 EOF
 }
+
