@@ -20,4 +20,4 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           github-ref: ${{ github.ref }}
           github-repository:  ${{ github.repository }}
-          github-sha: ${{ github.sha }}
+          github-sha: ${{ github.event.workflow_run.head_sha }}
