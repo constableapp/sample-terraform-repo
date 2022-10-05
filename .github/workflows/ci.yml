@@ -11,6 +11,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
+      - name: Dump GitHub context
+        env:
+          GITHUB_CONTEXT: ${{ toJSON(github) }}
+        run: echo "$GITHUB_CONTEXT"
+
       - name: Constable Analyze
         uses: constableapp/github-action@v0.0.35-alpha.12671d33 
         with:
