@@ -4,15 +4,15 @@ on:
   pull_request:
 
 jobs:
-  analyze_terraform:
-    name: Analyze Terraform
+  enqueue_constable:
+    name: Enqueue Constable
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v2
 
       - name: Constable Enqueue
-        uses: constableapp/github-action@v0.0.47-alpha.f84971e0
+        uses: constableapp/github-action@v0.0.48-alpha.3dd57aa5
         with:
           constable-api-key: ${{ secrets.CONSTABLE_API_KEY }}
           terraform-module-root: "./devops"
