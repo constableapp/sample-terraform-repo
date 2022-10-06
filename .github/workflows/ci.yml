@@ -11,7 +11,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Constable Analyze
+      - name: Constable Enqueue
         uses: constableapp/github-action@v0.0.47-alpha.f84971e0
         with:
           constable-api-key: ${{ secrets.CONSTABLE_API_KEY }}
