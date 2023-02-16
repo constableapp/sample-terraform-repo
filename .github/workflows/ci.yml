@@ -12,7 +12,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Constable Enqueue
-        uses: constableapp/github-action@v0.0.48-alpha.3dd57aa5
+        uses: constableapp/github-action@v0.0.71-demo.1f5327e3
         with:
           constable-api-key: ${{ secrets.CONSTABLE_API_KEY }}
           terraform-module-root: "./devops"
